@@ -24,6 +24,7 @@
 
 - **Official GitBook Documentation**: [https://sobat-siswa.gitbook.io/sobat-siswa/](https://sobat-siswa.gitbook.io/sobat-siswa/)
 - **Official Instagram**: [@sobatsiswa.id](https://www.instagram.com/sobatsiswa.id/)
+- **Original Concept Video (YouTube)**: [Sobat Siswa / Revolution of School - SEACC Batch 3](https://youtu.be/hJ9S4DL7tg4?si=iAzZnenkLMcEdO10)
 
 ---
 
@@ -202,6 +203,17 @@ php artisan test
 # or
 ./vendor/bin/phpunit
 ```
+
+---
+
+## Team & Contributors
+
+- **Zulfahmi Ardiansah** (Team Leader)
+- **M. Yahya Oktariansyah**
+- **Muhammad Syaifullah**
+- **Al Falah Lazuardi M.**
+- **Aziz Zuhri Pratomo**
+- **Abiyu Ababil Putra**
 
 ---
 
