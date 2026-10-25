@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobat Siswa: Aplikasi Pengelolaan Sekolah dan Catatan Siswa</title>
+
+  <!-- Meta Tags Utama & SEO -->
+  <meta name="title" content="Sobat Siswa: Aplikasi Pengelolaan Sekolah dan Catatan Siswa">
+  <meta name="description" content="Aplikasi web gratis dan open-source untuk sekolah di Indonesia. Membantu guru mencatat data siswa, poin pelanggaran tata tertib, bimbingan konseling, dan mencetak e-Rapor.">
+  <meta name="keywords" content="sobat siswa, aplikasi sekolah, sistem informasi sekolah, e-rapor, catatan pelanggaran siswa, bimbingan konseling, manajemen sekolah, aplikasi sekolah gratis, smkn 26 jakarta, seacc batch 3">
+  <meta name="author" content="Zulfahmi Ardiansah dan Tim Sobat Siswa">
+  <meta name="publisher" content="Sobat Siswa">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#2e3d82" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
+  <meta name="application-name" content="Sobat Siswa">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:url" content="https://github.com/zulfahmi-ardiansah/pub-sobat-siswa-php">
+  <meta property="og:site_name" content="Sobat Siswa">
+  <meta property="og:title" content="Sobat Siswa: Aplikasi Pengelolaan Sekolah dan Catatan Siswa">
+  <meta property="og:description" content="Catat nilai rapor, poin kedisiplinan, prestasi murid, dan bimbingan konseling tanpa repot tumpukan kertas. Aplikasi sekolah open-source lisensi MIT.">
+  <meta property="og:image" content="./assets/img/monogram-logo.svg">
+  <meta property="og:image:alt" content="Logo Resmi Sobat Siswa">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sobat Siswa: Aplikasi Pengelolaan Sekolah dan Catatan Siswa">
+  <meta name="twitter:description" content="Aplikasi web gratis dan open-source untuk sekolah di Indonesia. Membantu guru mencatat data siswa, poin tata tertib, bimbingan konseling, dan e-Rapor.">
+  <meta name="twitter:image" content="./assets/img/main-section-illustration.svg">
+  <meta name="twitter:image:alt" content="Ilustrasi Fitur Aplikasi Sobat Siswa">
+
+  <!-- Favicon & Canonical -->
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="./assets/img/favicon.png">
+  <link rel="canonical" href="https://github.com/zulfahmi-ardiansah/pub-sobat-siswa-php">
+
+  <!-- Google Fonts & Font Awesome CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./assets/css/style.css?v=8">
+
+  <!-- Structured Data (JSON-LD Schema.org) untuk Rich Snippets Mesin Pencari -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://github.com/zulfahmi-ardiansah/pub-sobat-siswa-php#software",
+        "name": "Sobat Siswa",
+        "description": "Aplikasi pengelolaan sekolah dan catatan siswa berbasis web untuk mempermudah administrasi pendidikan di Indonesia.",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web Browser, Linux, Windows, macOS (PHP 7.3+ / 8.0+, MySQL)",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "IDR"
+        },
+        "license": "https://opensource.org/licenses/MIT",
+        "author": {
+          "@type": "Person",
+          "name": "Zulfahmi Ardiansah",
+          "email": "zulfahmiardiansah.26@gmail.com"
+        },
+        "award": "Juara 3 SEACC Batch 3 Smart School"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://github.com/zulfahmi-ardiansah/pub-sobat-siswa-php#website",
+        "name": "Sobat Siswa",
+        "url": "https://github.com/zulfahmi-ardiansah/pub-sobat-siswa-php",
+        "description": "Sistem Informasi Sekolah dan Catatan Siswa Berbasis Web",
+        "inLanguage": "id-ID"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://github.com/zulfahmi-ardiansah/pub-sobat-siswa-php#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Apakah sekolah harus bayar untuk menggunakan aplikasi ini?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tidak bayar. Sobat Siswa adalah aplikasi sumber terbuka (open source) dengan lisensi MIT. Sekolah bebas mengunduh kode programnya, memasangnya di komputer sekolah, dan menggunakannya tanpa biaya lisensi."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Bagaimana jika guru kami belum terbiasa dengan aplikasi komputer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Antarmuka Sobat Siswa dibuat sederhana menyerupai formulir biasa. Guru cukup memilih nama kelas dan murid, lalu mengisi nilai atau pelanggaran. Seluruh tata caranya juga sudah dijelaskan bergambar di buku panduan GitBook."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Apakah catatan bimbingan konseling (BK) bisa dibaca oleh siswa lain?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tidak bisa. Sistem membatasi hak akses akun secara ketat. Catatan konseling hanya dapat dibuka oleh guru BK dan pengelola sistem yang berwenang, sehingga masalah pribadi siswa tetap terlindungi."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Di mana aplikasi ini bisa dipasang?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aplikasi ini berbasis PHP (Laravel) dan MySQL. Sekolah bisa memasangnya di jaringan lokal sekolah (LAN) agar bisa diakses lewat Wi-Fi sekolah, atau dipasang di layanan hosting web/cloud agar bisa diakses dari rumah masing-masing."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       Header & Navigasi (Bebas Glitch, Rapi, Tanpa Teks Bertumpuk)
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-link" aria-label="Halaman Utama Sobat Siswa">
+        <img src="./assets/img/monogram-logo.svg" alt="Sobat Siswa" class="site-logo logo-light" width="160" height="36">
+        <img src="./assets/img/white-logo.svg" alt="Sobat Siswa" class="site-logo logo-dark" width="160" height="36">
+      </a>
+
+      <nav class="nav-links" aria-label="Menu Navigasi">
+        <a href="#keunggulan" class="nav-link">Keunggulan</a>
+        <a href="#fitur" class="nav-link">Layanan</a>
+        <a href="#sejarah" class="nav-link">Sejarah</a>
+        <a href="#faq" class="nav-link">Tanya Jawab</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Tombol Ganti Tema -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Ganti Mode Tampilan" title="Ganti Mode Tampilan">
+          <i class="fas fa-moon"></i>
+        </button>
+
+        <!-- Tombol GitHub -->
+        <a href="https://github.com/zulfahmi-ardiansah/pub-sobat-siswa-php" target="_blank" rel="noopener noreferrer" class="nav-icon-btn" aria-label="Repositori GitHub" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+
+        <!-- Tombol Buku Panduan (GitBook) -->
+        <a href="https://sobat-siswa.gitbook.io/sobat-siswa/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          <i class="fas fa-book-open"></i> Panduan
+        </a>
+
+        <!-- Tombol Menu Mobile -->
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Buka Menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dropdown Menu Mobile -->
+    <div class="mobile-nav-menu" id="mobileNavMenu">
+      <a href="#keunggulan" class="nav-link">Keunggulan</a>
+      <a href="#fitur" class="nav-link">Layanan</a>
+      <a href="#sejarah" class="nav-link">Sejarah</a>
+      <a href="#faq" class="nav-link">Tanya Jawab</a>
+      <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+        <a href="https://sobat-siswa.gitbook.io/sobat-siswa/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="flex: 1;">
+          <i class="fas fa-book-open"></i> Buku Panduan
+        </a>
+        <a href="https://github.com/zulfahmi-ardiansah/pub-sobat-siswa-php" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="flex: 1;">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         Hero Section
+         ====================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div data-aos="fade-up" data-aos-duration="600">
+          <div class="hero-badge-row">
+            <span class="tag tag-award">
+              <i class="fas fa-trophy"></i> Juara 3 SEACC Batch 3 Smart School
+            </span>
+          </div>
+
+          <h1 class="hero-title">
+            Aplikasi Sekolah untuk Catat Nilai, Pelanggaran, dan Prestasi Siswa
+          </h1>
+
+          <p class="hero-description">
+            Sobat Siswa membantu sekolah mengelola buku nilai e-Rapor, poin pelanggaran tata tertib, dan bimbingan konseling dalam satu sistem web yang rapi dan gratis.
+          </p>
+
+          <div class="hero-cta-row">
+            <a href="#fitur" class="btn btn-primary">
+              <i class="fas fa-th-large"></i> Jelajahi Layanan Sekolah
+            </a>
+            <a href="https://sobat-siswa.gitbook.io/sobat-siswa/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <i class="fas fa-book-reader"></i> Buka Buku Panduan
+            </a>
+          </div>
+
+          <div class="hero-proof-list">
+            <div class="hero-proof-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Gratis dan Lisensi Bebas (MIT)</span>
+            </div>
+            <div class="hero-proof-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Mendukung Banyak Sekolah (Multi-Tenant)</span>
+            </div>
+            <div class="hero-proof-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Bisa Dipasang di Server Lokal & Web</span>
+            </div>
+            <div class="hero-proof-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Panduan Lengkap di GitBook</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ilustrasi Utama Proyek -->
+        <div class="hero-visual-card" data-aos="fade-left" data-aos-duration="700">
+          <img src="./assets/img/main-section-illustration.svg" alt="Ilustrasi Fitur Sekolah Sobat Siswa" class="hero-main-illustration" width="480" height="380" fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Keunggulan Utama (2 Kolom dengan advantage-section-illustration.svg)
+         ====================================================================== -->
+    <section class="section section-subtle" id="keunggulan">
+      <div class="container">
+        <div class="advantage-layout">
+          <div data-aos="fade-up">
+            <h2 class="section-title">Mengapa Memilih Sobat Siswa?</h2>
+            <p class="section-desc" style="margin-bottom: 2rem;">
+              Dirancang untuk menyelesaikan kendala administrasi sekolah sehari-hari tanpa mempersulit guru.
+            </p>
+
+            <div class="advantage-cards-grid">
+              <div class="advantage-card">
+                <div class="advantage-icon-box">
+                  <i class="fas fa-file-alt"></i>
+                </div>
+                <h3 class="advantage-title">Bebas Kertas Menumpuk</h3>
+                <p class="advantage-desc">
+                  Arsip nilai, biodata, dan pelanggaran tersimpan aman di sistem. Tidak ada lagi buku robek atau terselip.
+                </p>
+              </div>
+
+              <div class="advantage-card">
+                <div class="advantage-icon-box">
+                  <i class="fas fa-gavel"></i>
+                </div>
+                <h3 class="advantage-title">Poin Pelanggaran yang Adil</h3>
+                <p class="advantage-desc">
+                  Aturan tata tertib punya pasal dan poin pasti. Guru bisa melampirkan foto bukti agar tidak terjadi salah paham dengan wali murid.
+                </p>
+              </div>
+
+              <div class="advantage-card">
+                <div class="advantage-icon-box">
+                  <i class="fas fa-user-shield"></i>
+                </div>
+                <h3 class="advantage-title">Kerahasiaan Ruang BK</h3>
+                <p class="advantage-desc">
+                  Catatan konsultasi siswa tersimpan rahasia, hanya bisa dibuka oleh guru bimbingan konseling dan pihak berwenang.
+                </p>
+              </div>
+
+              <div class="advantage-card">
+                <div class="advantage-icon-box">
+                  <i class="fas fa-print"></i>
+                </div>
+                <h3 class="advantage-title">Cetak e-Rapor Otomatis</h3>
+                <p class="advantage-desc">
+                  Nilai mata pelajaran dan ekstrakurikuler dihitung otomatis sesuai KKM sekolah, siap diunduh dan dicetak ke PDF.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ilustrasi Keunggulan Resmi (Light/Dark Responsive) -->
+          <div class="advantage-visual-card">
+            <img src="./assets/img/advantage-section-illustration.svg" alt="Ilustrasi Keunggulan Sobat Siswa" class="advantage-illustration-img illustration-light" width="480" height="380" loading="lazy">
+            <img src="./assets/img/advantage-section-illustration-dark.svg" alt="Ilustrasi Keunggulan Sobat Siswa" class="advantage-illustration-img illustration-dark" width="480" height="380" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         9 Layanan & Fitur Utama (Menggunakan feature-a.svg s/d feature-i.svg)
+         ====================================================================== -->
+    <section class="section" id="fitur">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">7 Layanan Utama Sobat Siswa</h2>
+          <p class="section-desc">
+            Seluruh kebutuhan sekolah, mulai dari data murid, catatan sikap, hingga buku nilai e-Rapor dalam satu aplikasi.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Fitur A -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <img src="./assets/img/feature-a.svg" alt="Ikon Basis Data Sekolah" class="feature-icon-img" width="64" height="64" loading="lazy">
+            </div>
+            <h3 class="feature-title">Basis Data Sekolah</h3>
+            <p class="feature-desc">
+              Menyimpan data identitas sekolah, direktori guru pengajar, biodata siswa, pembagian kelas, jurusan, dan data alumni.
+            </p>
+            <div class="feature-footer">
+              <a href="https://sobat-siswa.gitbook.io/sobat-siswa/data-dasar-1" target="_blank" rel="noopener noreferrer" class="feature-gitbook-link">
+                Panduan Modul <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Fitur B -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <img src="./assets/img/feature-b.svg" alt="Ikon Evaluasi Perilaku" class="feature-icon-img" width="64" height="64" loading="lazy">
+            </div>
+            <h3 class="feature-title">Evaluasi Sikap & Disiplin</h3>
+            <p class="feature-desc">
+              Pencatatan pelanggaran tata tertib dengan poin minus otomatis, foto bukti, dan pencatatan riwayat bimbingan konseling (BK).
+            </p>
+            <div class="feature-footer">
+              <a href="https://sobat-siswa.gitbook.io/sobat-siswa/evaluasi-perilaku/evaluasi-perilaku-pelanggaran-tata-tertib" target="_blank" rel="noopener noreferrer" class="feature-gitbook-link">
+                Panduan Modul <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Fitur C: Mata Pelajaran & Ekskul -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <img src="./assets/img/feature-e.svg" alt="Ikon Pembelajaran" class="feature-icon-img" width="64" height="64" loading="lazy">
+            </div>
+            <h3 class="feature-title">Mata Pelajaran & Ekskul</h3>
+            <p class="feature-desc">
+              Pengelolaan daftar mata pelajaran akademik, muatan lokal, standar KKM, kelompok rombel, dan kegiatan ekstrakurikuler.
+            </p>
+            <div class="feature-footer">
+              <a href="https://sobat-siswa.gitbook.io/sobat-siswa/data-dasar-1/data-dasar-mata-pelajaran" target="_blank" rel="noopener noreferrer" class="feature-gitbook-link">
+                Panduan Modul <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Fitur D: Portofolio Prestasi -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <img src="./assets/img/feature-f.svg" alt="Ikon Portofolio Prestasi" class="feature-icon-img" width="64" height="64" loading="lazy">
+            </div>
+            <h3 class="feature-title">Portofolio Prestasi</h3>
+            <p class="feature-desc">
+              Pencatatan piala, piagam juara lomba, dan penghargaan siswa lengkap dengan lampiran berkas sertifikat digital.
+            </p>
+            <div class="feature-footer">
+              <a href="https://sobat-siswa.gitbook.io/sobat-siswa/evaluasi-perilaku/evaluasi-perilaku-catatan-prestasi" target="_blank" rel="noopener noreferrer" class="feature-gitbook-link">
+                Panduan Modul <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Fitur E: e-Rapor -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <img src="./assets/img/feature-g.svg" alt="Ikon e-Rapor" class="feature-icon-img" width="64" height="64" loading="lazy">
+            </div>
+            <h3 class="feature-title">e-Rapor Digital Paperless</h3>
+            <p class="feature-desc">
+              Rekap nilai pengetahuan, keterampilan, dan ekstrakurikuler dihitung otomatis sesuai KKM sekolah, siap diunduh ke PDF.
+            </p>
+            <div class="feature-footer">
+              <a href="https://sobat-siswa.gitbook.io/sobat-siswa/informasi-dan-kbm/informasi-dan-kbm-laporan-belajar" target="_blank" rel="noopener noreferrer" class="feature-gitbook-link">
+                Panduan Modul <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Fitur F: Statistik Pelanggaran -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <img src="./assets/img/feature-h.svg" alt="Ikon Statistik Pelanggaran" class="feature-icon-img" width="64" height="64" loading="lazy">
+            </div>
+            <h3 class="feature-title">Statistik Pelanggaran</h3>
+            <p class="feature-desc">
+              Grafik rekapitulasi 6 bulan dan tren aturan tata tertib yang dilanggar untuk evaluasi pembinaan kedisiplinan siswa.
+            </p>
+            <div class="feature-footer">
+              <a href="https://sobat-siswa.gitbook.io/sobat-siswa/evaluasi-perilaku/evaluasi-perilaku-statistik-pelanggaran" target="_blank" rel="noopener noreferrer" class="feature-gitbook-link">
+                Panduan Modul <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Fitur G: Portal Mandiri Siswa -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <img src="./assets/img/feature-i.svg" alt="Ikon Portal Sekolah" class="feature-icon-img" width="64" height="64" loading="lazy">
+            </div>
+            <h3 class="feature-title">Portal Mandiri Siswa</h3>
+            <p class="feature-desc">
+              Portal akun siswa untuk mengecek nilai rapor, memantau riwayat poin sikap, dan membaca surat pengumuman sekolah.
+            </p>
+            <div class="feature-footer">
+              <a href="https://sobat-siswa.gitbook.io/sobat-siswa/navigasi-utama" target="_blank" rel="noopener noreferrer" class="feature-gitbook-link">
+                Panduan Modul <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Simulasi Tampilan Interaktif (Live UI Simulator)
+         ====================================================================== -->
+    <section class="section section-subtle" id="tampilan">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Simulasi Tampilan Aplikasi</h2>
+          <p class="section-desc">
+            Klik tombol pilihan di bawah untuk melihat contoh lembar rapor, catatan pelanggaran, dan notulen konseling BK.
+          </p>
+        </div>
+
+        <div class="preview-layout">
+          <!-- Pilihan Tab Simulasi -->
+          <div class="preview-nav">
+            <button class="preview-btn active" data-showcase="rapor">
+              <div class="preview-btn-icon">
+                <i class="fas fa-file-invoice"></i>
+              </div>
+              <div>
+                <div class="preview-btn-title">Lembar Nilai e-Rapor</div>
+                <div class="preview-btn-desc">Daftar nilai mapel, batas KKM, dan tombol unduh PDF.</div>
+              </div>
+            </button>
+
+            <button class="preview-btn" data-showcase="pelanggaran">
+              <div class="preview-btn-icon" style="color: var(--danger-text);">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div>
+                <div class="preview-btn-title">Catatan Pelanggaran Siswa</div>
+                <div class="preview-btn-desc">Rincian aturan yang dilanggar dan bukti fotonya.</div>
+              </div>
+            </button>
+
+            <button class="preview-btn" data-showcase="bk">
+              <div class="preview-btn-icon" style="color: var(--primary);">
+                <i class="fas fa-comments"></i>
+              </div>
+              <div>
+                <div class="preview-btn-title">Bimbingan Konseling (BK)</div>
+                <div class="preview-btn-desc">Notulen sesi konseling dan saran pemecahan masalah.</div>
+              </div>
+            </button>
+          </div>
+
+          <!-- Kotak Pratinjau Bersih -->
+          <div class="mockup-box">
+            <div class="mockup-bar">
+              <span>Contoh Tampilan Kartu Data</span>
+            </div>
+
+            <div class="mockup-body">
+              <!-- CONTOH 1: RAPOR -->
+              <div class="mockup-pane active" data-pane="rapor">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-light);">
+                  <div>
+                    <h4 style="font-size: 1.1rem; font-weight: 700;">Laporan Nilai Siswa</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Semester Ganjil, Tahun Ajaran 2026/2027</p>
+                  </div>
+                  <span class="tag tag-success">
+                    <i class="fas fa-download"></i> Unduh PDF
+                  </span>
+                </div>
+
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+                  <thead>
+                    <tr style="background-color: var(--bg-subtle); text-align: left;">
+                      <th style="padding: 8px 10px;">Mata Pelajaran</th>
+                      <th style="padding: 8px 10px; text-align: center;">KKM</th>
+                      <th style="padding: 8px 10px; text-align: center;">Pengetahuan</th>
+                      <th style="padding: 8px 10px; text-align: center;">Keterampilan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                      <td style="padding: 10px;">Pemrograman Web</td>
+                      <td style="padding: 10px; text-align: center;">75</td>
+                      <td style="padding: 10px; text-align: center; font-weight: 700; color: var(--success-text);">88</td>
+                      <td style="padding: 10px; text-align: center; font-weight: 700; color: var(--success-text);">92</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                      <td style="padding: 10px;">Basis Data Komputer</td>
+                      <td style="padding: 10px; text-align: center;">75</td>
+                      <td style="padding: 10px; text-align: center; font-weight: 700; color: var(--success-text);">85</td>
+                      <td style="padding: 10px; text-align: center; font-weight: 700; color: var(--success-text);">89</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 10px;">Matematika</td>
+                      <td style="padding: 10px; text-align: center;">70</td>
+                      <td style="padding: 10px; text-align: center; font-weight: 700; color: var(--primary);">80</td>
+                      <td style="padding: 10px; text-align: center; font-weight: 700; color: var(--primary);">82</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- CONTOH 2: PELANGGARAN -->
+              <div class="mockup-pane" data-pane="pelanggaran">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                  <h4 style="font-size: 1.1rem; font-weight: 700;">Riwayat Pelanggaran Murid</h4>
+                  <span class="tag tag-danger">Sisa Poin: 85 / 100</span>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                  <div style="padding: 0.85rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                      <div style="font-weight: 700; font-size: 0.9rem;">Tidak Memakai Dasi saat Upacara</div>
+                      <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">
+                        14 Oktober 2026, Dicatat Guru Piket
+                      </div>
+                    </div>
+                    <div class="mockup-violation-badge-col">
+                      <span class="mockup-point-tag">-5 Poin</span>
+                      <span class="mockup-proof-chip"><i class="fas fa-image"></i> FotoBukti.jpg</span>
+                    </div>
+                  </div>
+
+                  <div style="padding: 0.85rem 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                      <div style="font-weight: 700; font-size: 0.9rem;">Terlambat Masuk Jam Pertama</div>
+                      <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">
+                        02 September 2026, Dicatat Wali Kelas
+                      </div>
+                    </div>
+                    <div class="mockup-violation-badge-col">
+                      <span class="mockup-point-tag">-10 Poin</span>
+                      <span class="mockup-proof-chip"><i class="fas fa-image"></i> FotoBukti.jpg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CONTOH 3: BK -->
+              <div class="mockup-pane" data-pane="bk">
+                <div style="margin-bottom: 1rem;">
+                  <h4 style="font-size: 1.1rem; font-weight: 700;">Catatan Konseling Siswa</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Sesi bimbingan di Ruang BK tanggal 20 Oktober 2026.</p>
+                </div>
+
+                <div style="background-color: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+                  <div style="font-size: 0.875rem; margin-bottom: 0.65rem;">
+                    <strong>Kendala yang Dihadapi:</strong>
+                    <p style="margin-top: 0.2rem; color: var(--text-muted);">Murid merasa kesulitan mengatur waktu antara latihan olahraga sore dan tugas sekolah di malam hari.</p>
+                  </div>
+                  <div style="font-size: 0.875rem;">
+                    <strong style="color: var(--success-text);">Saran Guru BK:</strong>
+                    <p style="margin-top: 0.2rem; color: var(--text-muted);">Membuat jadwal harian bersama orang tua dan memilih satu hari khusus untuk istirahat penuh.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Siapa yang Menggunakan (3 Peran Akun)
+         ====================================================================== -->
+    <section class="section" id="pengguna">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Peran dan Hak Akses Pengguna</h2>
+          <p class="section-desc">
+            Sistem membatasi hak akses akun secara teratur agar data sekolah tetap aman.
+          </p>
+        </div>
+
+        <div class="roles-grid">
+          <div class="role-card">
+            <div class="role-header">
+              <h3 class="role-title">Pengelola (Tata Usaha / IT)</h3>
+              <p class="role-desc">Bertanggung jawab atas pengaturan data utama sekolah.</p>
+            </div>
+            <div class="role-tasks">
+              <div class="role-task-item">
+                <i class="fas fa-check"></i>
+                <span>Mengisi profil sekolah dan identitas resmi lembaga.</span>
+              </div>
+              <div class="role-task-item">
+                <i class="fas fa-check"></i>
+                <span>Membuat akun untuk bapak/ibu guru dan murid baru.</span>
+              </div>
+              <div class="role-task-item">
+                <i class="fas fa-check"></i>
+                <span>Mengatur daftar kelas, jurusan, dan mata pelajaran.</span>
+              </div>
+              <div class="role-task-item">
+                <i class="fas fa-check"></i>
+                <span>Menentukan aturan tata tertib dan bobot poin pelanggaran.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="role-card" style="border-color: var(--primary);">
+            <div class="role-header">
+              <h3 class="role-title">Guru dan Wali Kelas</h3>
+              <p class="role-desc">Menangani penilaian belajar dan pembinaan sikap murid.</p>
+            </div>
+            <div class="role-tasks">
+              <div class="role-task-item">
+                <i class="fas fa-check"></i>
+                <span>Mengisi nilai mata pelajaran untuk lembar e-Rapor.</span>
+              </div>
+              <div class="role-task-item">
+                <i class="fas fa-check"></i>
+                <span>Mencatat pelanggaran tata tertib lengkap dengan foto bukti.</span>
+              </div>
+              <div class="role-task-item">
+                <i class="fas fa-check"></i>
+                <span>Mencatat piala atau prestasi yang didapat siswa.</span>
+              </div>
+              <div class="role-task-item">
+                <i class="fas fa-check"></i>
+                <span>Mengisi catatan sesi bimbingan konseling (khusus guru BK).</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="role-card">
+            <div class="role-header">
+              <h3 class="role-title">Siswa dan Murid</h3>
+              <p class="role-desc">Melihat informasi sekolah dan perkembangan belajarnya sendiri.</p>
+            </div>
+            <div class="role-tasks">
+              <div class="role-task-item">
+                <i class="fas fa-check"></i>
+                <span>Melihat biodata pribadi yang tercatat di sekolah.</span>
+              </div>
+              <div class="role-task-item">
+                <i class="fas fa-check"></i>
+                <span>Mengecek riwayat poin kedisiplinan dan catatan prestasi.</span>
+              </div>
+              <div class="role-task-item">
+                <i class="fas fa-check"></i>
+                <span>Mengunduh lembar nilai e-Rapor pribadi.</span>
+              </div>
+              <div class="role-task-item">
+                <i class="fas fa-check"></i>
+                <span>Membaca pengumuman terbaru dari pihak sekolah.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Sejarah dan Perjalanan (SMS 2018 - Sobat Siswa 2021)
+         ====================================================================== -->
+    <section class="section section-subtle" id="sejarah">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2 class="section-title">Sejarah Sobat Siswa</h2>
+          <p class="section-desc">
+            Inovasi SMKN 26 Jakarta yang berkembang menjadi aplikasi sekolah mandiri.
+          </p>
+        </div>
+
+        <!-- Garis Waktu 3 Tonggak Utama -->
+        <div class="history-timeline-grid">
+          <!-- 2018: Student Monitoring System -->
+          <div class="history-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="history-card-header">
+              <span class="history-year-badge">2018</span>
+              <span class="tag tag-award">
+                <i class="fas fa-trophy"></i> Juara 3 SEACC Batch 3
+              </span>
+            </div>
+            <h3 class="history-card-title">Student Monitoring System (SMS)</h3>
+            <p class="history-card-desc">
+              Dibuat di SMKN 26 Jakarta untuk mendampingi 1.000+ siswa dengan presensi sidik jari, catatan kedisiplinan, dan prestasi.
+            </p>
+            <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border-light);">
+              <a href="https://youtu.be/hJ9S4DL7tg4?si=iAzZnenkLMcEdO10" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.85rem; font-weight: 600; color: var(--primary);">
+                <i class="fab fa-youtube" style="color: #ef4444;"></i> Video Presentasi SEACC
+              </a>
+            </div>
+          </div>
+
+          <!-- 2019: Inisiasi Aplikasi Standalone -->
+          <div class="history-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="history-card-header">
+              <span class="history-year-badge">2019</span>
+              <span class="tag">
+                <i class="fas fa-code-branch"></i> Aplikasi Mandiri
+              </span>
+            </div>
+            <h3 class="history-card-title">Lahirnya Nama Sobat Siswa</h3>
+            <p class="history-card-desc">
+              Melihat hasil positif pada kedisiplinan siswa, tim sepakat merombak sistem menjadi aplikasi mandiri untuk sekolah umum.
+            </p>
+          </div>
+
+          <!-- 2021: Rilis Penuh & Lisensi Bebas -->
+          <div class="history-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="history-card-header">
+              <span class="history-year-badge">2021</span>
+              <span class="tag">
+                <i class="fas fa-feather-alt"></i> Lisensi MIT
+              </span>
+            </div>
+            <h3 class="history-card-title">Rilis Publik Bebas Biaya</h3>
+            <p class="history-card-desc">
+              Pengembangan tuntas dengan modul e-Rapor, BK, dan multi-tenant, resmi dirilis gratis di bawah lisensi terbuka MIT.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bukti Lapangan & 3 Pilar Awal -->
+        <div class="history-impact-box" data-aos="fade-up" data-aos-delay="300">
+          <div class="history-impact-grid">
+            <div>
+              <h4 class="history-impact-col-title">
+                <i class="fas fa-cubes"></i> 3 Pilar Fondasi Awal (SMS 2018)
+              </h4>
+              <div class="history-impact-list">
+                <div class="history-impact-item">
+                  <i class="fas fa-fingerprint"></i>
+                  <div class="history-impact-content">
+                    <div class="history-impact-title">Kehadiran Otomatis</div>
+                    <p class="history-impact-desc">Absensi sidik jari menggantikan kertas agar rekap tercatat langsung di database.</p>
+                  </div>
+                </div>
+                <div class="history-impact-item">
+                  <i class="fas fa-clipboard-check"></i>
+                  <div class="history-impact-content">
+                    <div class="history-impact-title">Poin Pelanggaran Transparan</div>
+                    <p class="history-impact-desc">Pencatatan tata tertib terbuka yang bisa dipantau langsung oleh guru dan siswa.</p>
+                  </div>
+                </div>
+                <div class="history-impact-item">
+                  <i class="fas fa-medal"></i>
+                  <div class="history-impact-content">
+                    <div class="history-impact-title">Pencatatan Prestasi</div>
+                    <p class="history-impact-desc">Dokumentasi capaian akademik dan non-akademik beserta apresiasi sekolah.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="history-impact-col-title">
+                <i class="fas fa-chart-line"></i> Dampak Nyata di Sekolah
+              </h4>
+              <div class="history-impact-list">
+                <div class="history-impact-item">
+                  <i class="fas fa-user-check"></i>
+                  <div class="history-impact-content">
+                    <div class="history-impact-title">Evaluasi Diri Siswa</div>
+                    <p class="history-impact-desc">Siswa memantau poinnya dan berinisiatif berangkat lebih pagi agar tidak terlambat.</p>
+                  </div>
+                </div>
+                <div class="history-impact-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <div class="history-impact-content">
+                    <div class="history-impact-title">Ketenangan Orang Tua</div>
+                    <p class="history-impact-desc">Orang tua tetap dapat memantau kedisiplinan anak meski waktu luangnya terbatas.</p>
+                  </div>
+                </div>
+                <div class="history-impact-item">
+                  <i class="fas fa-hands-helping"></i>
+                  <div class="history-impact-content">
+                    <div class="history-impact-title">Pendampingan Tepat Sasaran</div>
+                    <p class="history-impact-desc">Sekolah lebih cepat mendeteksi tren perilaku dan membina siswa yang butuh perhatian.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tim Pengembang SMKN 26 Jakarta -->
+        <div class="history-dev-box" data-aos="fade-up" data-aos-delay="350">
+          <div class="history-dev-header">
+            <div class="history-dev-info">
+              <span class="history-dev-tag">Tim Pengembang Awal</span>
+              <h3 class="history-dev-title">Pencetus dan Pengembang (SMKN 26 Jakarta)</h3>
+            </div>
+            <a href="https://youtu.be/hJ9S4DL7tg4?si=iAzZnenkLMcEdO10" target="_blank" rel="noopener noreferrer" class="history-dev-video-btn">
+              <i class="fab fa-youtube"></i> Tonton Presentasi SEACC Batch 3
+            </a>
+          </div>
+
+          <div class="history-dev-grid">
+            <div class="history-dev-member is-leader">
+              <span class="history-dev-name">Zulfahmi Ardiansah</span>
+              <span class="dev-lead-badge">Team Lead</span>
+            </div>
+            <div class="history-dev-member">
+              <span class="history-dev-name">M. Yahya Oktariansyah</span>
+            </div>
+            <div class="history-dev-member">
+              <span class="history-dev-name">Muhammad Syaifullah</span>
+            </div>
+            <div class="history-dev-member">
+              <span class="history-dev-name">Al Falah Lazuardi M.</span>
+            </div>
+            <div class="history-dev-member">
+              <span class="history-dev-name">Aziz Zuhri Pratomo</span>
+            </div>
+            <div class="history-dev-member">
+              <span class="history-dev-name">Abiyu Ababil Putra</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Buku Panduan Pemakaian (GitBook)
+         ====================================================================== -->
+    <section class="section" id="panduan">
+      <div class="container">
+        <div class="gitbook-card">
+          <div>
+            <h2 style="font-size: 1.85rem; margin-bottom: 0.85rem; line-height: 1.3;">Panduan Lengkap</h2>
+            <p style="margin-bottom: 1.5rem; font-size: 1rem;">
+              Setiap langkah, mulai dari memasukkan nama guru, mencatat poin pelanggaran, hingga cara mencetak rapor, sudah ditulis dengan bahasa Indonesia yang jelas di GitBook resmi kami.
+            </p>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <a href="https://sobat-siswa.gitbook.io/sobat-siswa/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <i class="fas fa-external-link-alt"></i> Buka Buku Panduan GitBook
+              </a>
+              <a href="https://github.com/zulfahmi-ardiansah/pub-sobat-siswa-php" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <i class="fab fa-github"></i> Repositori GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="gitbook-links-grid">
+            <a href="https://sobat-siswa.gitbook.io/sobat-siswa/data-dasar-1" target="_blank" rel="noopener noreferrer" class="gitbook-link-item">
+              <i class="fas fa-database"></i> <span>Cara Isi Data Sekolah</span>
+            </a>
+            <a href="https://sobat-siswa.gitbook.io/sobat-siswa/evaluasi-perilaku/evaluasi-perilaku-pelanggaran-tata-tertib" target="_blank" rel="noopener noreferrer" class="gitbook-link-item">
+              <i class="fas fa-exclamation-triangle"></i> <span>Cara Catat Pelanggaran</span>
+            </a>
+            <a href="https://sobat-siswa.gitbook.io/sobat-siswa/evaluasi-perilaku/evaluasi-perilaku-catatan-prestasi" target="_blank" rel="noopener noreferrer" class="gitbook-link-item">
+              <i class="fas fa-medal"></i> <span>Cara Catat Prestasi</span>
+            </a>
+            <a href="https://sobat-siswa.gitbook.io/sobat-siswa/data-dasar-1/data-dasar-mata-pelajaran" target="_blank" rel="noopener noreferrer" class="gitbook-link-item">
+              <i class="fas fa-book"></i> <span>Mata Pelajaran & Ekskul</span>
+            </a>
+            <a href="https://sobat-siswa.gitbook.io/sobat-siswa/informasi-dan-kbm/informasi-dan-kbm-laporan-belajar" target="_blank" rel="noopener noreferrer" class="gitbook-link-item">
+              <i class="fas fa-file-invoice"></i> <span>Cara Buat e-Rapor</span>
+            </a>
+            <a href="https://sobat-siswa.gitbook.io/sobat-siswa/navigasi-utama" target="_blank" rel="noopener noreferrer" class="gitbook-link-item">
+              <i class="fas fa-compass"></i> <span>Panduan Navigasi Utama</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Tanya Jawab (FAQ)
+         ====================================================================== -->
+    <section class="section section-subtle" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Pertanyaan yang Sering Ditanyakan</h2>
+          <p class="section-desc">
+            Pertanyaan umum seputar penggunaan dan pemasangan aplikasi Sobat Siswa.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-trigger" aria-expanded="true">
+              <span>Apakah sekolah harus bayar untuk menggunakan aplikasi ini?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-content">
+              <p>
+                Tidak bayar. Sobat Siswa adalah aplikasi sumber terbuka (open source) dengan lisensi MIT. Sekolah bebas mengunduh kode programnya, memasangnya di komputer sekolah, dan menggunakannya tanpa biaya lisensi.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Bagaimana jika guru kami belum terbiasa dengan aplikasi komputer?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-content">
+              <p>
+                Antarmuka Sobat Siswa dibuat sederhana menyerupai formulir biasa. Guru cukup memilih nama kelas dan murid, lalu mengisi nilai atau pelanggaran. Seluruh tata caranya juga sudah dijelaskan bergambar di buku panduan GitBook.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Apakah catatan bimbingan konseling (BK) bisa dibaca oleh siswa lain?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-content">
+              <p>
+                Tidak bisa. Sistem membatasi hak akses akun secara ketat. Catatan konseling hanya dapat dibuka oleh guru BK dan pengelola sistem yang berwenang, sehingga masalah pribadi siswa tetap terlindungi.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Di mana aplikasi ini bisa dipasang?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-content">
+              <p>
+                Aplikasi ini berbasis PHP (Laravel) dan MySQL. Sekolah bisa memasangnya di jaringan lokal sekolah (LAN) agar bisa diakses lewat Wi-Fi sekolah, atau dipasang di layanan hosting web/cloud agar bisa diakses dari rumah masing-masing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       Footer (Bersih, Rapi, Logo Light/Dark Switcher)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="margin-bottom: 1rem;">
+            <img src="./assets/img/monogram-logo.svg" alt="Sobat Siswa" class="site-logo logo-light" width="160" height="36" loading="lazy" style="filter: brightness(0) invert(1);">
+            <img src="./assets/img/white-logo.svg" alt="Sobat Siswa" class="site-logo logo-dark" width="160" height="36" loading="lazy">
+          </div>
+          <p class="footer-desc">
+            Aplikasi pengelolaan sekolah dan catatan siswa berbasis web untuk mempermudah administrasi pendidikan di Indonesia.
+          </p>
+          <div class="footer-award-badge">
+            <i class="fas fa-trophy"></i>
+            <span>Juara 3 SEACC Batch 3 Smart School</span>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Navigasi</h5>
+          <div class="footer-list">
+            <a href="#hero" class="footer-link">Beranda</a>
+            <a href="#keunggulan" class="footer-link">Keunggulan</a>
+            <a href="#fitur" class="footer-link">Layanan Sekolah</a>
+            <a href="#tampilan" class="footer-link">Contoh Tampilan</a>
+            <a href="#pengguna" class="footer-link">Pengguna</a>
+            <a href="#sejarah" class="footer-link">Sejarah</a>
+            <a href="#faq" class="footer-link">Tanya Jawab</a>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Buku Panduan</h5>
+          <div class="footer-list">
+            <a href="https://sobat-siswa.gitbook.io/sobat-siswa/data-dasar-1" target="_blank" rel="noopener noreferrer" class="footer-link">Data Sekolah</a>
+            <a href="https://sobat-siswa.gitbook.io/sobat-siswa/evaluasi-perilaku/evaluasi-perilaku-pelanggaran-tata-tertib" target="_blank" rel="noopener noreferrer" class="footer-link">Tata Tertib</a>
+            <a href="https://sobat-siswa.gitbook.io/sobat-siswa/evaluasi-perilaku/evaluasi-perilaku-catatan-prestasi" target="_blank" rel="noopener noreferrer" class="footer-link">Prestasi Siswa</a>
+            <a href="https://sobat-siswa.gitbook.io/sobat-siswa/informasi-dan-kbm/informasi-dan-kbm-laporan-belajar" target="_blank" rel="noopener noreferrer" class="footer-link">e-Rapor</a>
+            <a href="https://sobat-siswa.gitbook.io/sobat-siswa/navigasi-utama" target="_blank" rel="noopener noreferrer" class="footer-link">Navigasi Utama</a>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Tautan Resmi</h5>
+          <div class="footer-list">
+            <a href="https://github.com/zulfahmi-ardiansah/pub-sobat-siswa-php" target="_blank" rel="noopener noreferrer" class="footer-link">
+              <i class="fab fa-github"></i> Repositori GitHub
+            </a>
+            <a href="https://sobat-siswa.gitbook.io/sobat-siswa/" target="_blank" rel="noopener noreferrer" class="footer-link">
+              <i class="fas fa-book"></i> GitBook Sobat Siswa
+            </a>
+            <a href="https://www.instagram.com/sobatsiswa.id/" target="_blank" rel="noopener noreferrer" class="footer-link">
+              <i class="fab fa-instagram"></i> Instagram Sobat Siswa
+            </a>
+            <a href="https://youtu.be/hJ9S4DL7tg4?si=iAzZnenkLMcEdO10" target="_blank" rel="noopener noreferrer" class="footer-link">
+              <i class="fab fa-youtube"></i> Presentasi SEACC (YouTube)
+            </a>
+            <a href="mailto:zulfahmiardiansah.26@gmail.com" class="footer-link">
+              <i class="fas fa-envelope"></i> Email Pengembang
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          Sobat Siswa dirilis dengan Lisensi Bebas MIT. Dibuat untuk mendukung pendidikan di Indonesia.
+        </div>
+        <div>
+          <a href="#hero" class="footer-link">Kembali ke Atas</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tombol Melayang Kembali ke Atas (Fitts's Law) -->
+  <button class="back-to-top" id="backToTopBtn" aria-label="Kembali ke atas halaman">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Pustaka Animasi AOS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Skrip Interaktif -->
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>
